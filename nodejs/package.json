@@ -4,9 +4,10 @@
   "description": "hello",
   "main": "hello.js",
   "scripts": {
-    "start": "node hello.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mai",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }
