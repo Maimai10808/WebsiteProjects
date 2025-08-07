@@ -43,11 +43,15 @@ const vegetables = [
         <Student name1= "Mai" name2= "Mai" isStudent= {true} />
         <UserGreeting isLoggedIn= {true} username = "Mai"/>
 
+         <ProfilePicture />
+
 
 
 
        {fruits.length > 0 && <List items= {fruits} category= "Fruits"/>}
        {vegetables.length > 0 && <List items= {vegetables} category= "vegetables"/>}
+
+
 
     </>
 

@@ -1,11 +1,16 @@
 import styles from './Button.module.css'
 
-function Button() {
+function Button({ name }) {
 
-    return(
-        <button className={styles.button}>Click me</button>
-    )
+  const greet = (person) => {
+    alert(`Hello, ${person}!`);
+  };
 
+  return (
+    <button onClick={() => greet(name)}>
+      Greet {name}
+    </button>
+  );
 }
 
 export default Button
