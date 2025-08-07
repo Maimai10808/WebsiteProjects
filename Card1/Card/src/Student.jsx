@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 
 function Student(props) {
@@ -11,11 +11,18 @@ function Student(props) {
     );
 }
 
-Student.prototype = {
-    name1    : PropTypes.string,
-    name2    : PropTypes.string,
-    isStudent: PropTypes.bool,
-}
+Student.propTypes = {
+  name1: PropTypes.string,
+  name2: PropTypes.string,
+  isStudent: PropTypes.bool,
+};
+
+Student.defaultProps = {
+  name1: "Mai Zhen NI",
+  name2: "Mai Yu Fan",
+  isStudent: true,
+};
+
 
 
 export default Student
