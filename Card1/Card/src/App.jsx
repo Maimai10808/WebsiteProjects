@@ -1,6 +1,6 @@
 
 
-import SetName from "./SetName.jsx"
+import ColorPicker from "./ColorPicker.jsx"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return(
     <>
-        <SetName />
+        <ColorPicker />
 
     </>
 
