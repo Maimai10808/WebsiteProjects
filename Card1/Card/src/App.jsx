@@ -1,6 +1,6 @@
 
 
-import Counter from "./Counter.jsx"
+import SetName from "./SetName.jsx"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return(
     <>
-        <Counter />
+        <SetName />
 
     </>
 
