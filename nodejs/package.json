@@ -9,5 +9,8 @@
   },
   "author": "Mai",
   "license": "ISC",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
