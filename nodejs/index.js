@@ -1,35 +1,12 @@
-const http = require('http');
-const fs = require('fs');
 
-const server = http.createServer((req, res) => {
-  console.log('New request received');
+const express = require('express');
+const app = express();
 
-  switch (req.url) {
-  case '/':
-    res.end('Welcome to the Home Page');
-    break;
-  case '/about':
-    res.end('This is the About Page');
-    break;
-  default:
-    res.end('404 Not Found');
-}
+app.get('/', (req, res) => res.send('Home Page'));
+app.get('/signup', (req, res) => res.send('Signup Form'));
+app.post('/signup', (req, res) => res.send('Signup Success'));
 
-
-fs.appendFile('log.txt', `${new Date().toISOString()} - New request received\n`, err => {
-  if (err) console.error('日志写入失败:', err);
-});
-
-const log = `${new Date().toISOString()} - ${req.url}\n`;
-
-fs.appendFile('log.txt', log, err => {
-  if (err) console.error('日志写入失败:', err);
-});
-
-});
-
-
-
+app.listen(8000, () => console.log('Server started'));
 
 /*
 	•	req 是 请求对象，包含请求头、路径、IP 等信息。
@@ -38,7 +15,3 @@ fs.appendFile('log.txt', log, err => {
 
 */
 
-
-server.listen(8000, () => {
-  console.log('Server started on port 8000');
-});
