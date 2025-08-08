@@ -2,13 +2,11 @@ import styles from './Button.module.css'
 
 function Button({ name }) {
 
-  const greet = (person) => {
-    alert(`Hello, ${person}!`);
-  };
+  const handleClick = (e) => e.target.textContent = "OUCH!"
 
   return (
-    <button onClick={() => greet(name)}>
-      Greet {name}
+    <button onClick={(e) => handleClick(e)}>
+      Click me
     </button>
   );
 }
