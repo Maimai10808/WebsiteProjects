@@ -1,6 +1,6 @@
 
 
-import ARRAYOfOBJECTS from "./ARRAYOfOBJECTS.jsx"
+import ToDoList from "./ToDoList.jsx"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return(
     <>
-        <ARRAYOfOBJECTS />
+        <ToDoList />
 
     </>
 
