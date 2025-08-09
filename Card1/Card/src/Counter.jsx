@@ -6,11 +6,11 @@ function Counter() {
     const [num, setNum] = useState(0)
 
     const plus = () => {
-        setNum( num + 1 )
+        setNum( num => num  + 1 )
     }
 
     const de = () => {
-        setNum( num - 1 )
+        setNum( num => num - 1 )
     }
 
     const backToZero = () => {
