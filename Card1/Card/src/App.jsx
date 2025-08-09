@@ -1,6 +1,6 @@
 
 
-import ARRAYSApp from "./ARRAYSApp.jsx"
+import ARRAYOfOBJECTS from "./ARRAYOfOBJECTS.jsx"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return(
     <>
-        <ARRAYSApp />
+        <ARRAYOfOBJECTS />
 
     </>
 
