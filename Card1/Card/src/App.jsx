@@ -1,6 +1,6 @@
 
 
-import Car from "./Car.jsx"
+import ARRAYSApp from "./ARRAYSApp.jsx"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return(
     <>
-        <Car />
+        <ARRAYSApp />
 
     </>
 
