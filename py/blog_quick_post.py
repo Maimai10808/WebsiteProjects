@@ -1,9 +1,45 @@
 import subprocess
-from Makemarkdown import make_markdown
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 import re
+import datetime
+
+def make_markdown(data, filepath):
+    # 处理category和tags为YAML格式
+    def yaml_list(key, items):
+        if not items:
+            return f"{key}: []"
+        s = f"{key}:\n"
+        for item in items:
+            s += f"  - {item}\n"
+        return s.rstrip()
+
+    # 处理自定义字段
+    custom_lines = []
+    for field in data.get('custom', []):
+        k = field.get('type', '').strip()
+        v = field.get('value', '').strip()
+        if k and v:
+            custom_lines.append(f"{k}: {v}")
+
+    # 日期
+    today = datetime.date.today().isoformat()
+    # 组装markdown
+    md = ["---"]
+    md.append(f"title: {data.get('title','')}")
+    md.append(f"date: {today}")
+    md.append("lang: zh")
+    md.append(yaml_list("category", [data.get('category','')]))
+    md.append(yaml_list("tags", data.get('tags', [])))
+    md.extend(custom_lines)
+    md.append("---\n")
+    md.append(data.get('content',''))
+    md_str = '\n'.join(md)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(md_str)
+    return filepath
+
 
 
 # 标签输入与动态添加
@@ -155,10 +191,14 @@ def on_ok():
     def after_deploy():
         pb.stop()
         progress_win.destroy()
+        def close_and_exit():
+            root.destroy()
         if code == 0:
             messagebox.showinfo("提示", f"内容已提交并已生成 {filepath}\n博客已自动更新！")
+            root.after(100, close_and_exit)
         else:
             messagebox.showwarning("警告", f"内容已提交并已生成 {filepath}\n但博客自动更新失败：{err}")
+            root.after(100, close_and_exit)
 
     def run_deploy():
         nonlocal code, out, err
@@ -174,5 +214,6 @@ def on_ok():
     root.after(100, run_deploy)
 
 ttk.Button(root, text="OK", command=on_ok).pack(pady=15)
+
 
 root.mainloop()
