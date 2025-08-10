@@ -1,10 +1,12 @@
 import './App.css'
-import DigitalClock from './DigitalClock.jsx'
+import testA from './testA.jsx'
+
+
 function App() {
 
   return (
     <>
-    <DigitalClock />
+    <testA />
     </>
   )
 }
