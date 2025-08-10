@@ -1,10 +1,10 @@
 import './App.css'
-import windowResize from './windowResize.jsx'
+import DigitalClock from './DigitalClock.jsx'
 function App() {
 
   return (
     <>
-    <windowResize />
+    <DigitalClock />
     </>
   )
 }
